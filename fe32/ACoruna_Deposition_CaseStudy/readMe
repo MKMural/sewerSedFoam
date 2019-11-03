@@ -1,0 +1,4 @@
+Both Scenarios have three folders along with the main results within them:
+- Initialization: Where suspended sediment concentration is initialized through the channel for 100 seconds from a start time of 20 seconds to 120 seconds with changing bed morphology off, this is achieved by commenting out the inclusion of meshMove.H from exnerBed.h (line 98) and recompiling sewerSedFoam.
+- Day1-2: Bed morphology is turned back on along with a scaling of 100 times the bed height. Deposition scaling is active to a constant height for the entire channel, this was run until a stable bed height was achieved, results in the stableFinal folder.
+- Day3-4: Bed morphology is on along with a 100 times scaling. Scaling is now active till the stable bed height from the Day1-2 stableFinal heights, stored in the 900 folder. Also run till a stable bed height was achieved, results in the stableFinal2 folder.
