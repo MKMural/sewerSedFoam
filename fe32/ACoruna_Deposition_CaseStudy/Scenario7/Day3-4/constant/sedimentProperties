@@ -11,15 +11,15 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "constant";
-    object      sedimentProperties;
+    object      sedimenttProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-nu1              nu1 [ 0 2 -1 0 0 0 0 ] 1e-06; //viscosity of water
+nu1              nu1 [ 0 2 -1 0 0 0 0 ] 1e-06;// dynamic viscosity of water
 
-nu2              nu2 [ 0 2 -1 0 0 0 0 ] 0; //artificial air viscosity
+nu2              nu2 [ 0 2 -1 0 0 0 0 ] 0;  //Artificial visocity of air to prevent intrusion
 
-Db              Db [ 0 1 0 0 0 0 0 ] 2.8E-04; //bedload particle diameter
+Db              Db [ 0 1 0 0 0 0 0 ] 4.05E-04; //bedload particle diameter
 
 Dss1            Dss1 [ 0 1 0 0 0 0 0 ] 0.75e-4; //SS1 particle diameter
 
@@ -65,7 +65,7 @@ UxMax 	UxMax [ 0 1 0 0 0 0 0 ] 0.2; //Max distance from outlet before which exne
 
 erosion erosion [ 0 0 0 0 0 0 0 ] 0; //0 for deposition, 1 for erosion, and 2 for both scenarios
 
-dd0	dd0	[ 0 1 0 0 0 0 0 ]  4.1e-4; //initial weak deposit height in m
+dd0	dd0	[ 0 1 0 0 0 0 0 ]  4.05e-4; //initial weak deposit height in m
 
 Bemp	Bemp	[ 0 0 0 0 0 0 0 ]  0.2; //b empirical value in TauC2 calc
 

@@ -10,14 +10,14 @@ FoamFile
     version     2.0;
     format      ascii;
     class       areaScalarField;
-    location    "910";
+    location    "1440";
     object      thetaC1B;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 dimensions      [0 0 0 0 0 0 0];
 
-internalField   uniform 0.0466484;
+internalField   uniform 0.0368338;
 
 boundaryField
 {

@@ -18,17 +18,17 @@ application     interFoam;
 
 startFrom       latestTime;
 
-startTime       20;
+startTime       0;
 
 stopAt          endTime;
 
-endTime         20000;
+endTime         120;
 
 deltaT          0.004;
 
 writeControl    adjustableRunTime;
 
-writeInterval   50;
+writeInterval   10;
 
 purgeWrite      0;
 
@@ -54,6 +54,7 @@ libs
 (
     "libgroovyBC.so"
     "libfieldFunctionObjects.so"
+     "libmyFiniteVolume.so"
 );
 
 functions
@@ -80,6 +81,7 @@ functions
 	    (6 0 0.0255)
 	    (6 0 0.0305)
 	);
+
      }
 
 	fieldMinMax1
