@@ -117,11 +117,11 @@ forAll(aPatch, faceI)
  {
   Href[faceI] = totH[faceI] + Hmax.value();
  }
- /*if (bedSS.value() == 1 && icount < 2 && totH[faceI] > Href1.value() &&
+ if (bedSS.value() == 1 && icount < 2 && totH[faceI] > Href1.value() &&
     (Href[faceI] == 0 || Href[faceI] == Hmax.value()))
  {
   Href[faceI] = Href1.value() + (totH[faceI] - Href1.value()) * (Href1.value()/totH[faceI]);
- }*/
+ }
  if (bedSS.value() == 0)
  {
   Href[faceI] = Hmax.value();

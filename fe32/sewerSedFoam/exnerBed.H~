@@ -46,8 +46,8 @@ forAll(aPatch, faceI)
    deltaH[faceI] = 0.001;  	
   } 
 
-  //max height filter
-  if (totH[faceI] > Href1.value() && deltaH[faceI] > 0)
+  //max height filter if required, change 0.1m to the required value
+  if (totH[faceI] > 0.1 && deltaH[faceI] > 0)
   {
    deltaH[faceI] = 0;  	
   } 
