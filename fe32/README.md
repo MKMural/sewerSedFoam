@@ -1,3 +1,2 @@
 # sewerSedFoam
-A sewer sediment transport and bed morphology solver for OpenFOAM's foam-extend fork
-
+A sewer sediment transport and bed morphology solver for foam-extendv3.2
