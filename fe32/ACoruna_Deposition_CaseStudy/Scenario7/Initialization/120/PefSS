@@ -3,33 +3,39 @@
 | \\      /  F ield         | foam-extend: Open Source CFD                    |
 |  \\    /   O peration     | Version:     3.2                                |
 |   \\  /    A nd           | Web:         http://www.foam-extend.org         |
-|    \\/     M anipulation  |                                                 |
+|    \\/     M anipulation  | For copyright notice see file Copyright         |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    location    "system";
-    object      decomposeParDict;
+    class       areaScalarField;
+    location    "120";
+    object      PefSS;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-numberOfSubdomains 2;
+dimensions      [0 0 0 0 0 0 0];
 
-method          hierarchical;
+internalField   uniform 0;
 
-
-hierarchicalCoeffs
+boundaryField
 {
-    n               (1 1 2);
-    delta           0.001;
-    order           xyz;
+    inlet
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    endWall
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    sideWall
+    {
+        type            empty;
+    }
 }
 
-
-distributed     no;
-
-roots           ( );
 
 // ************************************************************************* //
