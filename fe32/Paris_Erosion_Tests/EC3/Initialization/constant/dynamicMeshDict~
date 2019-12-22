@@ -1,0 +1,127 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM Extend Project: Open Source CFD        |
+|  \\    /   O peration     | Version:  1.6-ext                               |
+|   \\  /    A nd           | Web:      www.extend-project.de                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+dynamicFvMeshLibs       ("libdynamicTopoFvMesh.so");
+
+//- Select the type of dynamicFvMesh
+dynamicFvMesh          dynamicTopoFvMesh; //dynamicMotionSolverFvMesh; 
+
+twoDMotion yes;
+
+//- Select the type of motionSolver
+solver                   laplace; //displacementLaplacian;
+
+diffusivity squadratic;//uniform 1;
+
+distancePatches 1 (bed);
+
+frozenDiffusion   off;
+
+//- Options for dynamicTopoFvMesh
+dynamicTopoFvMesh
+{
+    //- Should all options be made mandatory?
+    //- Useful for first-time use.
+    allOptionsMandatory no;
+
+    //- Set run-time debug level [0-5]
+    //debug               2;
+
+    //- Specify the number of threads
+    threads             1;
+
+    //- Specify re-meshing interval
+    //- Negative value implies no re-meshing
+    interval            1;
+
+    //- Specify whether the length-scale field
+    //- should be dumped to disk
+    dumpLengthScale     false;
+
+    //- sliverThreshold specifies the
+    //- quality criteria for sliver removal.
+    sliverThreshold     0.35;
+
+    //- Should the tool attempt to remove slivers
+    //- that fall below the sliverThreshold value?
+    removeSlivers       false;
+
+    //- Skip mapping step. Useful while using
+    //- this tool as a pre-processor
+    // skipMapping         true;
+
+    // Toggle edgeRefinement on/off
+    edgeRefinement      no;
+
+    //- Options for edge-bisection/collapse.
+    //-   The edgeRefinement flag must be set for
+    //-   the following options to have effect
+    refinementOptions
+    {
+        collapseRatio   0.5;
+        bisectionRatio  1.5;
+        growthFactor    1.0;
+
+        //- By default, existing boundary edge-lengths
+        //- are used for length-scales.
+        //- Length-scale can be fixed for certain patches.
+        fixedLengthScalePatches
+        {
+        }
+
+        //- Avoid refinement on certain patches, if necessary
+        noModificationPatches
+        {
+        }
+
+        FreeSurfacePatch
+        {
+        }
+        
+        
+        //- Set floating length-scale values on certain patches
+        freeLengthScalePatches
+        {
+        }
+
+        //- Limit lengthScales to specified values, if necessary
+        // minLengthScale   0.1;
+        // maxLengthScale   0.3;
+
+        //- Field-based refinement options
+        // fieldRefinement  gamma;
+        // fieldLengthScale 0.005;
+        // lowerRefineLevel 0.001;
+        // upperRefineLevel 0.999;
+        // maxRefineLevel   4;
+        // meanScale        0.015;
+    }
+
+    //- If the number of modifications are to be limited, set this option
+    // maxModifications   1000;
+
+    //- Load custom libraries for metrics
+    // tetMetricLibs      ("libtetMetrics.so");
+
+    //- Tetrahedral mesh quality metric
+    tetMetric          Knupp;
+
+    //- Avoid 2-2 swapping on certain patches
+    noSwapPatches
+    {}
+}
+
+// ************************************************************************* //

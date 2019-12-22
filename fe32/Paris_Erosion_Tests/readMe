@@ -1,0 +1,5 @@
+- All Erosion Cases (ECs) 1-5 have their own folders along with their main results within them.
+
+- Initialization folders within each case folders were used to initialize suspended sediment in the channel for 100 seconds with dynamic bed morphology disabled (this is achieved by commenting out the inclusion of meshMove.H from line 98 of exnerBed.h and recompiling sewerSedFoam) to create the 120 files.
+
+- Erosion results were achieve by running the 120 folder until a stable bed height was obtained. The stable height results are stored in the 260 folder. 

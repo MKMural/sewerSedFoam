@@ -1,0 +1,140 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     3.2                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+    transportModel  Newtonian;
+    nu              nu [ 0 2 -1 0 0 0 0 ] 1e-06;
+    rho             rho [ 1 -3 0 0 0 0 0 ] 996;
+
+phase1
+{
+    transportModel  Newtonian;
+    nu              nu [ 0 2 -1 0 0 0 0 ] 1e-06;
+    rho             rho [ 1 -3 0 0 0 0 0 ] 996;
+    CrossPowerLawCoeffs
+    {
+        nu0             nu0 [ 0 2 -1 0 0 0 0 ] 1e-06;
+        nuInf           nuInf [ 0 2 -1 0 0 0 0 ] 1e-06;
+        m               m [ 0 0 1 0 0 0 0 ] 1;
+        n               n [ 0 0 0 0 0 0 0 ] 0;
+    }
+
+    BirdCarreauCoeffs
+    {
+        nu0             nu0 [ 0 2 -1 0 0 0 0 ] 0.0142515;
+        nuInf           nuInf [ 0 2 -1 0 0 0 0 ] 1e-06;
+        k               k [ 0 0 1 0 0 0 0 ] 99.6;
+        n               n [ 0 0 0 0 0 0 0 ] 0.1003;
+    }
+}
+
+phase2
+{
+    transportModel  Newtonian;
+    nu              nu [ 0 2 -1 0 0 0 0 ] 1.48e-05;
+    rho             rho [ 1 -3 0 0 0 0 0 ] 1;
+    CrossPowerLawCoeffs
+    {
+        nu0             nu0 [ 0 2 -1 0 0 0 0 ] 1e-06;
+        nuInf           nuInf [ 0 2 -1 0 0 0 0 ] 1e-06;
+        m               m [ 0 0 1 0 0 0 0 ] 1;
+        n               n [ 0 0 0 0 0 0 0 ] 0;
+    }
+
+    BirdCarreauCoeffs
+    {
+        nu0             nu0 [ 0 2 -1 0 0 0 0 ] 0.0142515;
+        nuInf           nuInf [ 0 2 -1 0 0 0 0 ] 1e-06;
+        k               k [ 0 0 1 0 0 0 0 ] 99.6;
+        n               n [ 0 0 0 0 0 0 0 ] 0.1003;
+    }
+}
+
+sigma           sigma [ 1 0 -2 0 0 0 0 ] 0.07;
+
+nu1              nu1 [ 0 2 -1 0 0 0 0 ] 1e-06;
+
+nu2              nu2 [ 0 2 -1 0 0 0 0 ] 0;  // nu2 [ 0 2 -1 0 0 0 0 ] 0;
+
+Db              Db [ 0 1 0 0 0 0 0 ] 4.15E-03; //bedload particle diameter
+
+Dss1            Dss1 [ 0 1 0 0 0 0 0 ] 0.2E-03; //SS1 particle diameter
+
+Dss2            Dss2 [ 0 1 0 0 0 0 0 ] 5e-04; //SS2 particle diameter
+
+rhoB             rhoB [ 1 -3 0 0 0 0 0 ] 2317; //bedload particle density
+
+rhoSS1		 rhoSS1 [ 1 -3 0 0 0 0 0 ] 2000; //suspended sediment 1 density
+
+rhoSS2		 rhoSS2 [ 1 -3 0 0 0 0 0 ] 1800; //suspended sediment 2 density
+
+rhof             rhof [ 1 -3 0 0 0 0 0 ] 996; //fluid density
+
+Pa		Pa  [ 0 0 0 0 0 0 0 ] 0.5; //initial proportion of Type A ie bedload sediment
+
+Pc		Pc  [ 0 0 0 0 0 0 0 ] 0.5; //initial proportion of Type C ie SS1 
+
+Pe		Pe  [ 0 0 0 0 0 0 0 ] 0; //initial proportion of Type E ie SS2
+
+DyP		DyP  [ 0 0 0 0 0 0 0 ] 1; //Dynamic proportions on (1) or off (0)
+
+n		n  [ 0 0 0 0 0 0 0 ] 0.41; //bed porosity
+
+Csp1		Csp1 [ 0 0 0 0 0 0 0 ] 2; //max setpoint to limit C1
+
+Csp2		Csp2 [ 0 0 0 0 0 0 0 ] 2; //max setpoint to limit C2
+
+mud  		mud [ 0 0 0 0 0 0 0 ] 0.6; //
+
+mus  		mus [ 0 0 0 0 0 0 0 ] 0.65; //
+
+BLa  		BLa [ 0 0 0 0 0 0 0 ] 10; //between 6 and 10
+
+Ubiterations  	Ubiterations [ 0 0 0 0 0 0 0 ] 8000; //correction loop iterations
+
+xsens 	xsens [ 0 0 0 0 0 0 0 ] 5e-5; //sensitivity of Ub correction loop in primary flow direction
+
+yzsens   yzsens [ 0 0 0 0 0 0 0 ] 5e-6; //sensitivity of Ub correction loop in non-primary flow directions
+
+xMin 	xMin [ 0 1 0 0 0 0 0 ] 0; //Min X-coordinates of the mesh
+
+xMax 	xMax [ 0 1 0 0 0 0 0 ] 15; //Max X-coordinates of the mesh
+
+UxMin 	UxMin [ 0 1 0 0 0 0 0 ] 5; //Min distance from inlet after which exner eqn is implemented
+
+UxMax 	UxMax [ 0 1 0 0 0 0 0 ] 0.2; //Max distance from outlet before which exner eqn is implemented
+
+erosion erosion [ 0 0 0 0 0 0 0 ] 1; //0 for deposition and 1 for erosion scenarios
+
+angRepo angRepo [0 0 0 0 0 0 0] 0.576; //max angle beta ie angle of repose
+
+Te0	Te0	[ 0 0 1 0 0 0 0 ]  0; //initial time since erosion in seconds
+
+Tc	Tc	[ 0 0 1 0 0 0 0 ]  18000; //consolidation time in seconds
+
+dd0	dd0	[ 0 1 0 0 0 0 0 ]  0.1; //initial weak deposit height in m
+
+Bemp	Bemp	[ 0 0 0 0 0 0 0 ]  0.2; //b empirical value in TauC2 calc
+
+Femp	Femp	[ 0 0 0 0 0 0 0 ] 1; //fraction of Tc1 value for initial weak bed shields
+
+H0	H0	[ 0 1 0 0 0 0 0 ]  0.1; //initial deposited bed height in m
+
+Hmax	Hmax	[ 0 1 0 0 0 0 0 ]  0.05; //max deposited bed height in m
+
+qb_SP	qb_SP   [0 2 -1 0 0 0 0](0.000982353 -5.14089e-23 1.86932e-05);
+
+morphTimeScale  morphTimeScale [ 0 1 0 0 0 0 0 ]  1; 
+// ************************************************************************* //
