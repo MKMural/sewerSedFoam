@@ -42,10 +42,6 @@ DyP		DyP  [ 0 0 0 0 0 0 0 ] 1; //Dynamic proportions on (1) or off (0)
 
 n		n  [ 0 0 0 0 0 0 0 ] 0.41; //bed porosity
 
-Csp1		Csp1 [ 0 0 0 0 0 0 0 ] 2; //max setpoint to limit C1
-
-Csp2		Csp2 [ 0 0 0 0 0 0 0 ] 2; //max setpoint to limit C2
-
 mud  		mud [ 0 0 0 0 0 0 0 ] 0.6; //
 
 mus  		mus [ 0 0 0 0 0 0 0 ] 0.65; //

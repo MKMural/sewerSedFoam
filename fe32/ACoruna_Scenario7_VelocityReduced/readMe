@@ -1,4 +1,4 @@
-Both reduced velocity scenarios have three folders along with the main results within them:
+Both reduced velocity scenarios have two folders with the main results within them:
 
 - Initialization: Where suspended sediment concentration is initialized through the channel for 100 seconds from a start time of 20 seconds to 120 seconds with changing bed morphology off, this is achieved by commenting out the inclusion of meshMove.H from exnerBed.h (line 98) and recompiling sewerSedFoam.
 

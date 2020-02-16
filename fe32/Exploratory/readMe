@@ -1,0 +1,7 @@
+All the different scenarios have two sets of results within them:
+
+- Max: The results and case files for the maximum flow case during which erosion occurs. Final stable results are in the 50 file. 
+
+- Min: The results and case files for the minimum flow case during which deposition occurs. Final stable results are in the 2000 file.
+
+Please note that the initialization of the flow velocity field has not been included in these files, but can easily be replicated with the boundary condition information provided. The suspended solids is not initialised here as the settling part of the equation has been removed due to the partial modelling of the channel. 

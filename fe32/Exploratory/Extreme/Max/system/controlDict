@@ -1,0 +1,113 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     3.2                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     interFoam;
+
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         50;
+
+deltaT          0.005;
+
+writeControl    adjustableRunTime;
+
+writeInterval   1;
+
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression uncompressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+adjustTimeStep  off;
+
+maxCo           0.8;
+
+maxDeltaT       0.05;
+
+libs 
+(
+    "libgroovyBC.so"
+    "libfieldFunctionObjects.so"
+);
+
+functions
+{
+    /*probes
+     {
+	type probes;
+	outputControl outputTime;
+	outputInterval 1;
+	fields
+	(
+	  U
+	);
+
+	probeLocations
+	(
+	    (0.5 0 0.001)	
+	    (0.5 0 0.02)
+	    (0.5 0 0.04)
+	    (0.5 0 0.06)
+	    (0.5 0 0.08)
+	    (0.5 0 0.1)
+	    (0.5 0 0.115)
+	    (4.5 0 -0.0089)	
+	    (4.5 0 -0.008)
+	    (4.5 0 -0.0064)
+	    (4.5 0 -0.004)
+	    (4.5 0 0.002)
+	    (4.5 0 0.005)
+	    (4.5 0 0.009)
+	    (4.5 0 0.014)
+	    (4.5 0 0.02)
+	    (4.5 0 0.024)
+	    (4.5 0 0.03)
+	    /*(8.5 0 -0.017)	
+	    (8.5 0 0.003)
+	    (8.5 0 0.023)
+	    (8.5 0 0.043)
+	    (8.5 0 0.063)
+	    (8.5 0 0.083)
+	    (8.5 0 0.1029999)
+	);
+
+     }*/
+
+	fieldMinMax1
+	{
+	    type            fieldMinMax;
+	    fields          (U p k omega);
+	    outputControl   outputTime;
+	    writeToFile     yes;
+	    log             yes;
+	    location        yes;
+	    mode            magnitude; 
+	}
+}
+// ************************************************************************* //

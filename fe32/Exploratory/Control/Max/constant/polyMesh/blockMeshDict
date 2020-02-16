@@ -1,0 +1,112 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.4.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+//2-D
+//Approx sewer size
+
+convertToMeters 1;
+
+vertices
+(
+    (0 0 0) // vertex number 0
+    (15 0 -0.075) // vertex number 1 
+    (15 0.02 -0.075) // vertex number 2
+    (0 0.02 0) // vertex number 3
+    (0 0 0.03) // vertex number 4
+    (15 0 -0.045) // vertex number 5
+    (15 0.02 -0.045) // vertex number 6
+    (0 0.02 0.03) // vertex number 7
+    /*(0 0 1) // vertex number 8
+    (15 0 0.9865) // vertex number 9
+    (15 0.02 0.9865) // vertex number 10
+    (0 0.02 1) // vertex number 11
+    (6067 40.05 0) // vertex number 12
+    (6307 40.05 0) // vertex number 13
+    (6307 149.95 0) // vertex number 14
+    (6067 149.95 0) // vertex number 15
+    (6374 -0.05 0) // vertex number 16
+    (6374 149.95 0) // vertex number 17
+    (6374 149.95 250) // vertex number 18
+    (6374 -0.05 250) // vertex number 19*/
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) (300 1 18) simpleGrading (1 1 1)
+    //hex (4 5 6 7 8 9 10 11) (300 1 117) simpleGrading (1 1 1)
+   /* hex (1 12 15 2 5 8 11 6) (5 7 10) simpleGrading (1 3 1)
+    hex (12 13 14 15 8 9 10 11) (8 7 10) simpleGrading (1 3 1)
+    hex (13 16 17 14 9 19 18 10) (5 7 10) simpleGrading (1 3 1)*/
+);
+
+edges
+(
+);
+
+boundary
+(
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 3 7 4)
+        );
+    }
+
+    outlet
+    {
+        type patch;
+        faces
+        (
+           (1 5 6 2)
+        );
+    }   
+   
+    sideWall
+    {
+        type empty;
+        faces
+        (
+            (4 5 1 0)
+            (3 2 6 7)
+        );
+    }
+
+    bed
+    {
+        type wall;
+        faces
+        (
+           (0 1 2 3)
+        );
+    }
+
+    topWall
+    {
+        type patch;
+        faces
+        (
+	 (4 7 6 5) 
+        );
+    }
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //
