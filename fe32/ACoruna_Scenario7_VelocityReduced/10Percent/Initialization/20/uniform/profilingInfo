@@ -1,0 +1,302 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     3.2                                |
+|   \\  /    A nd           | Web:         http://www.foam-extend.org         |
+|    \\/     M anipulation  | For copyright notice see file Copyright         |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       regIOobject;
+    location    "200/uniform";
+    object      profilingInfo;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+profilingInfo
+(
+
+    {
+        id              28;
+        parentId        24;
+        description     "Foam::Time::writeObject - outputTime";
+        calls           12;
+        totalTime       1.74304;
+        childTime       0;
+        onStack         1;
+    }
+
+    {
+        id              24;
+        parentId        1;
+        description     "Foam::Time::writeObject";
+        calls           30000;
+        totalTime       1.89558;
+        childTime       1.74304;
+        onStack         1;
+    }
+
+    {
+        id              1;
+        description     "application::main";
+        calls           1;
+        totalTime       8765.95;
+        childTime       4236.98;
+        onStack         1;
+    }
+
+    {
+        id              27;
+        parentId        25;
+        description     "FO::fieldMinMax1::execute";
+        calls           29999;
+        totalTime       0.079116;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              8;
+        parentId        6;
+        description     "FO::fieldMinMax1::start";
+        calls           1;
+        totalTime       2.3e-05;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              26;
+        parentId        25;
+        description     "FO::probes::execute";
+        calls           29999;
+        totalTime       0.116383;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              7;
+        parentId        6;
+        description     "FO::probes::start";
+        calls           1;
+        totalTime       0.001677;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              9;
+        parentId        1;
+        description     "MULES::explicitSolve";
+        calls           60000;
+        totalTime       341.665;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              6;
+        parentId        5;
+        description     "functionObjectList::read";
+        calls           1;
+        totalTime       0.001783;
+        childTime       0.0017;
+        onStack         0;
+    }
+
+    {
+        id              25;
+        parentId        1;
+        description     "functionObjects_.execute()";
+        calls           29999;
+        totalTime       0.461411;
+        childTime       0.195499;
+        onStack         0;
+    }
+
+    {
+        id              5;
+        parentId        1;
+        description     "functionObjects_.start()";
+        calls           1;
+        totalTime       0.001788;
+        childTime       0.001783;
+        onStack         0;
+    }
+
+    {
+        id              10;
+        parentId        1;
+        description     "fvMatrix::solve_U";
+        calls           30000;
+        totalTime       223.451;
+        childTime       172.414;
+        onStack         0;
+    }
+
+    {
+        id              21;
+        parentId        1;
+        description     "fvMatrix::solve_k";
+        calls           30000;
+        totalTime       98.2832;
+        childTime       90.7135;
+        onStack         0;
+    }
+
+    {
+        id              18;
+        parentId        1;
+        description     "fvMatrix::solve_omega";
+        calls           30000;
+        totalTime       135.006;
+        childTime       119.336;
+        onStack         0;
+    }
+
+    {
+        id              2;
+        parentId        1;
+        description     "fvMatrix::solve_pcorr";
+        calls           2;
+        totalTime       0.115001;
+        childTime       0.114566;
+        onStack         0;
+    }
+
+    {
+        id              15;
+        parentId        1;
+        description     "fvMatrix::solve_pd";
+        calls           120000;
+        totalTime       3436.1;
+        childTime       3401.27;
+        onStack         0;
+    }
+
+    {
+        id              12;
+        parentId        11;
+        description     "lduMatrix::smoother_Ux";
+        calls           30000;
+        totalTime       25.2459;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              14;
+        parentId        13;
+        description     "lduMatrix::smoother_Uz";
+        calls           30000;
+        totalTime       73.7903;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              23;
+        parentId        22;
+        description     "lduMatrix::smoother_k";
+        calls           30000;
+        totalTime       62.6571;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              20;
+        parentId        19;
+        description     "lduMatrix::smoother_omega";
+        calls           30000;
+        totalTime       84.8354;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              11;
+        parentId        10;
+        description     "lduMatrix::solver_Ux";
+        calls           30000;
+        totalTime       66.8832;
+        childTime       25.2459;
+        onStack         0;
+    }
+
+    {
+        id              13;
+        parentId        10;
+        description     "lduMatrix::solver_Uz";
+        calls           30000;
+        totalTime       105.531;
+        childTime       73.7903;
+        onStack         0;
+    }
+
+    {
+        id              4;
+        parentId        3;
+        description     "lduMatrix::solver_coarsestLevelCorr";
+        calls           24;
+        totalTime       0.014275;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              17;
+        parentId        16;
+        description     "lduMatrix::solver_coarsestLevelCorr";
+        calls           568883;
+        totalTime       387.212;
+        childTime       0;
+        onStack         0;
+    }
+
+    {
+        id              22;
+        parentId        21;
+        description     "lduMatrix::solver_k";
+        calls           30000;
+        totalTime       90.7135;
+        childTime       62.6571;
+        onStack         0;
+    }
+
+    {
+        id              19;
+        parentId        18;
+        description     "lduMatrix::solver_omega";
+        calls           30000;
+        totalTime       119.336;
+        childTime       84.8354;
+        onStack         0;
+    }
+
+    {
+        id              3;
+        parentId        2;
+        description     "lduMatrix::solver_pcorr";
+        calls           2;
+        totalTime       0.114566;
+        childTime       0.014275;
+        onStack         0;
+    }
+
+    {
+        id              16;
+        parentId        15;
+        description     "lduMatrix::solver_pd";
+        calls           120000;
+        totalTime       3401.27;
+        childTime       387.212;
+        onStack         0;
+    }
+);
+
+
+// ************************************************************************* //

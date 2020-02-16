@@ -5,3 +5,6 @@ Both Scenarios have three folders along with the main results within them:
 - Day1-2: Bed morphology is turned back on along with a scaling of 100 times the bed height. Deposition scaling is active to a constant height for the entire channel and the simulation was run until a stable bed height was achieved. Stable results in the 900 folder.
 
 - Day3-4: Bed morphology is on along with a 100 times scaling. Scaling is now active till the stable bed height from the Day1-2 stableFinal heights, stored in the 900 folder. Simulation also run till a stable bed height was achieved, results in the 1800 folder.
+
+
+Please note that the initialization of the flow velocity field has not been included in these files, but can easily be replicated with the boundary condition information provided. 
